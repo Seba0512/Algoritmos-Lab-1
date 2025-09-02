@@ -122,17 +122,11 @@ PRUEBAS FUNCION PruebaIntercalarVector                             PRUEBAS CORRE
 ----------------------------------------------
 Prueba Subconjunto Vector 1 -> OK
 ----------------------------------------------
-Prueba Subconjunto Vector 2 -> ERROR salida incorrecta
-	Parametros de entrada: [1,2,3], [1,2,3,4,5,6]
-	Se esperaba: true
-	Se recibio:  true
+Prueba Subconjunto Vector 2 -> OK
 ----------------------------------------------
 Prueba Subconjunto Vector 3 -> OK
 ----------------------------------------------
-Prueba Subconjunto Vector 4 -> ERROR salida incorrecta
-	Parametros de entrada: [2,2,2,3,54,6,7], [7,6,54,6,3,2]
-	Se esperaba: true
-	Se recibio:  true
+Prueba Subconjunto Vector 4 -> OK
 ----------------------------------------------
 Prueba Subconjunto Vector 5 -> OK
 ----------------------------------------------
@@ -144,7 +138,7 @@ Prueba Subconjunto Vector 8 -> OK
 ----------------------------------------------
 Prueba Subconjunto Vector 9 -> OK
 ----------------------------------------------
-PRUEBAS FUNCION PruebaSubconjuntoVector                            HAY PRUEBAS INCORRECTAS
+PRUEBAS FUNCION PruebaSubconjuntoVector                            PRUEBAS CORRECTAS
 ----------------------------------------------
 ----------------------------------------------
 Prueba Invertir Case de palabra 1 -> ERROR salida incorrecta
@@ -457,5 +451,5 @@ PRUEBAS FUNCION PruebaOrdenarVecIntMergeSort                       HAY PRUEBAS I
 ----------------------------------------------
 ----------------------------------------------
 PRUEBAS FUNCIONES 
-PRUEBAS FUNCIONES                              RESULTADO VARIOS => CORRECTAS:  7 INCORRECTAS:  7
+PRUEBAS FUNCIONES                              RESULTADO VARIOS => CORRECTAS:  8 INCORRECTAS:  6
 PRUEBAS FUNCIONES 
