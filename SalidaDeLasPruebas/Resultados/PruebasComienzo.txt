@@ -125,33 +125,24 @@ Prueba Subconjunto Vector 1 -> OK
 Prueba Subconjunto Vector 2 -> ERROR salida incorrecta
 	Parametros de entrada: [1,2,3], [1,2,3,4,5,6]
 	Se esperaba: true
-	Se recibio:  false
+	Se recibio:  true
 ----------------------------------------------
 Prueba Subconjunto Vector 3 -> OK
 ----------------------------------------------
 Prueba Subconjunto Vector 4 -> ERROR salida incorrecta
 	Parametros de entrada: [2,2,2,3,54,6,7], [7,6,54,6,3,2]
 	Se esperaba: true
-	Se recibio:  false
+	Se recibio:  true
 ----------------------------------------------
 Prueba Subconjunto Vector 5 -> OK
 ----------------------------------------------
-Prueba Subconjunto Vector 6 -> ERROR salida incorrecta
-	Parametros de entrada: [], []
-	Se esperaba: true
-	Se recibio:  false
+Prueba Subconjunto Vector 6 -> OK
 ----------------------------------------------
-Prueba Subconjunto Vector 7 -> ERROR salida incorrecta
-	Parametros de entrada: [], [2,3,1]
-	Se esperaba: true
-	Se recibio:  false
+Prueba Subconjunto Vector 7 -> OK
 ----------------------------------------------
 Prueba Subconjunto Vector 8 -> OK
 ----------------------------------------------
-Prueba Subconjunto Vector 9 -> ERROR salida incorrecta
-	Parametros de entrada: [1], [1]
-	Se esperaba: true
-	Se recibio:  false
+Prueba Subconjunto Vector 9 -> OK
 ----------------------------------------------
 PRUEBAS FUNCION PruebaSubconjuntoVector                            HAY PRUEBAS INCORRECTAS
 ----------------------------------------------

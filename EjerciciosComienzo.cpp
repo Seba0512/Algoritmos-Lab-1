@@ -124,14 +124,28 @@ int* intercalarVector(int* v1, int* v2, int l1, int l2) {
 }
 
 
-bool subconjuntoVector(int* v1, int* v2, int l1, int l2)
-{
-	// IMPLEMENTAR SOLUCION
-	return false;
+bool subconjuntoVector(int* v1, int* v2, int l1, int l2) { //v1 subconjunto de v2 (no importa si hay numeros repetidos)
+    if (l1 == 0) {
+        return true;
+    }
+    else if (l2 == 0) {
+        return false;
+    }
+    for(int i = 0; i < l1; i++) {
+        bool encontrado = false;
+        for(int j = 0; j < l2; j++) {
+            if(v1[i] == v2[j]) {
+                encontrado = true;
+                break;
+            }
+        }
+        if(!encontrado) {
+            return false;
+        }
+	}
 }
 
-char* invertirCase(char* str)
-{
+char* invertirCase(char* str){
 	// IMPLEMENTAR SOLUCION
 	return NULL;
 }
