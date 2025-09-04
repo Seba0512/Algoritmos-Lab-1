@@ -147,8 +147,10 @@ bool subconjuntoVector(int* v1, int* v2, int l1, int l2) {
 
 
 char* invertirCase(char* str){
-	// IMPLEMENTAR SOLUCION
-	return NULL;
+    if () {
+
+    }
+    return NULL;
 }
 
 int islas(char** mapa, int col, int fil){
