@@ -55,7 +55,7 @@ POS: Retorna true si y solo si existe un camino desde la raíz hasta una hoja que
 
 Ejemplo
 Entrada: {1,2,3}, 4
-   1
+   1 
   / \
  2   3
 Salida: true
@@ -63,6 +63,7 @@ Salida: true
 bool existeCaminoConSuma(NodoAB* raiz, int sum);
 
 /*
+* 
  *	EJERCICIO OBLIGATORIO
 PRE: Recibe un árbol binario
 POS: Retorna true si y solo si el arbol está balanceado.

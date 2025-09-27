@@ -145,29 +145,115 @@ bool subconjuntoVector(int* v1, int* v2, int l1, int l2) {
     return true;
 }
 
-
-char* invertirCase(char* str){
-    if () {
-
+//PRE: Recibe un string
+//POS: Retorna su largo
+int obtenerlargo(char* str) {
+    int i = 0;
+    while (str[i] != '\0') {
+        i++;
     }
-    return NULL;
+    return i;
 }
+
+char* invertirCase(char* str) {
+    int largo = obtenerlargo(str);//tomo el largo del str
+    char* ret = new char[largo + 1];
+
+    for (int i = 0; i < largo; i++) {
+        if (str[i] >= 'A' && str[i] <= 'Z') {
+            ret[i] = str[i] + 32;
+        }
+        else if (str[i] >= 'a' && str[i] <= 'z') {
+            ret[i] = str[i] - 32;
+        }
+        else {
+            ret[i] = str[i];
+        }
+    }
+    ret[largo] = '\0'; //agrega el \0 al final
+    return ret;
+}
+
 
 int islas(char** mapa, int col, int fil){
-	// IMPLEMENTAR SOLUCION
     return 0;
 }
 
-unsigned int ocurrenciasSubstring(char **vecStr, int largoVecStr, char *substr)
-{
-	// IMPLEMENTAR SOLUCION
-    return 0;
+
+// PRE:
+//POS: 
+bool contiene(const char* texto, const char* pal) {
+    if (pal[0] == '\0') {
+        return false; // si patron es vacío, no cuenta
+    }
+    for (int i = 0; texto[i] != '\0'; i++) {
+        int j = 0;
+        while (texto[i + j] != '\0' && pal[j] != '\0' && texto[i + j] == pal[j]) {
+            j++;
+        }
+        if (pal[j] == '\0') {
+            return true; // lo encontramos
+        }
+    }
+    return false;
 }
 
-char **ordenarVecStrings(char **vecStr, int largoVecStr)
-{
-	// IMPLEMENTAR SOLUCION
-    return NULL;
+// Cuenta en cuántos strings aparece el substring
+unsigned int ocurrenciasSubstring(char** vecStr, int largoVecStr, char* substr) {
+    unsigned int cuenta = 0;
+
+    for (int i = 0; i < largoVecStr; i++) {
+        if (contiene(vecStr[i], substr)) {
+            cuenta++; // solo una vez por string
+        }
+    }
+    return cuenta;
+}
+
+//PRE: Recibe dos palabras 
+//POS : Retorna true si pal1 > pal2
+bool compararStr(char* pal1, char* pal2) {
+    int i = 0;
+    while (pal1[i] != '\0' && pal2[i] != '\0' && pal1[i] == pal2[i]) {
+        i++;
+    }
+    return pal1[i] > pal2[i];
+}
+
+// PRE: Recibe un string
+// POS: Retorna una copia
+char* copiarStr(char* origen) {
+    int largo = 0;
+    while (origen[largo] != '\0') {
+        largo++;
+    }
+    char* copia = new char[largo + 1];
+    for (int i = 0; i <= largo; i++) {
+        copia[i] = origen[i];
+    }
+    return copia;
+}
+
+char** ordenarVecStrings(char** vecStr, int largoVecStr) {
+    if (largoVecStr <= 0) {
+        return nullptr;
+    }
+    // copia todo a un nuevo vector(usa mi aux copiarStr)
+    char** nuevoVec = new char* [largoVecStr];
+    for (int i = 0; i < largoVecStr; i++) {
+        nuevoVec[i] = copiarStr(vecStr[i]);
+    }
+    for (int i = 0; i < largoVecStr - 1; i++) {
+        for (int j = 0; j < largoVecStr - 1 - i; j++) {
+            if (compararStr(nuevoVec[j], nuevoVec[j + 1])) {
+
+                char* temp = nuevoVec[j];
+                nuevoVec[j] = nuevoVec[j + 1];
+                nuevoVec[j + 1] = temp;
+            }
+        }
+    }
+    return nuevoVec;
 }
 
 char** splitStr(char* str, char separador, int &largoRet)

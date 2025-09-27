@@ -141,42 +141,21 @@ Prueba Subconjunto Vector 9 -> OK
 PRUEBAS FUNCION PruebaSubconjuntoVector                            PRUEBAS CORRECTAS
 ----------------------------------------------
 ----------------------------------------------
-Prueba Invertir Case de palabra 1 -> ERROR salida incorrecta
-	Parametros de entrada: 
-	Se esperaba: 
-	Se recibio:  NULL
+Prueba Invertir Case de palabra 1 -> OK
 ----------------------------------------------
-Prueba Invertir Case de palabra 2 -> ERROR salida incorrecta
-	Parametros de entrada: hola
-	Se esperaba: HOLA
-	Se recibio:  NULL
+Prueba Invertir Case de palabra 2 -> OK
 ----------------------------------------------
-Prueba Invertir Case de palabra 3 -> ERROR salida incorrecta
-	Parametros de entrada: Write in C
-	Se esperaba: wRITE IN c
-	Se recibio:  NULL
+Prueba Invertir Case de palabra 3 -> OK
 ----------------------------------------------
-Prueba Invertir Case de palabra 4 -> ERROR salida incorrecta
-	Parametros de entrada: es UNA cosa DE locos
-	Se esperaba: ES una COSA de LOCOS
-	Se recibio:  NULL
+Prueba Invertir Case de palabra 4 -> OK
 ----------------------------------------------
-Prueba Invertir Case de palabra 5 -> ERROR salida incorrecta
-	Parametros de entrada: EsCrIbIR asi Es MoLeSTOOO
-	Se esperaba: eScRiBir ASI eS mOlEstooo
-	Se recibio:  NULL
+Prueba Invertir Case de palabra 5 -> OK
 ----------------------------------------------
-Prueba Invertir Case de palabra 6 -> ERROR salida incorrecta
-	Parametros de entrada: 1434
-	Se esperaba: 1434
-	Se recibio:  NULL
+Prueba Invertir Case de palabra 6 -> OK
 ----------------------------------------------
-Prueba Invertir Case de palabra 7 -> ERROR salida incorrecta
-	Parametros de entrada: #&/()|A
-	Se esperaba: #&/()|a
-	Se recibio:  NULL
+Prueba Invertir Case de palabra 7 -> OK
 ----------------------------------------------
-PRUEBAS FUNCION PruebaInvertirCase                                 HAY PRUEBAS INCORRECTAS
+PRUEBAS FUNCION PruebaInvertirCase                                 PRUEBAS CORRECTAS
 ----------------------------------------------
 ----------------------------------------------
 Prueba Islas 1 -> ERROR salida incorrecta
@@ -222,77 +201,38 @@ Prueba Islas 8 -> ERROR salida incorrecta
 PRUEBAS FUNCION PruebaIslas                                        HAY PRUEBAS INCORRECTAS
 ----------------------------------------------
 ----------------------------------------------
-Prueba Ocurrencias Substring 1 -> ERROR salida incorrecta
-	Parametros de entrada: ['hola'], hola
-	Se esperaba: 1
-	Se recibio:  0
+Prueba Ocurrencias Substring 1 -> OK
 ----------------------------------------------
-Prueba Ocurrencias Substring 2 -> ERROR salida incorrecta
-	Parametros de entrada: ['abc','ab','ab'], ab
-	Se esperaba: 3
-	Se recibio:  0
+Prueba Ocurrencias Substring 2 -> OK
 ----------------------------------------------
-Prueba Ocurrencias Substring 3 -> ERROR salida incorrecta
-	Parametros de entrada: ['holaho','holahol','holahola','holaholahola','holaholaholaho'], holahola
-	Se esperaba: 3
-	Se recibio:  0
+Prueba Ocurrencias Substring 3 -> OK
 ----------------------------------------------
-Prueba Ocurrencias Substring 4 -> ERROR salida incorrecta
-	Parametros de entrada: ['abcjsdf','sagsdfg','afgadfg','afgadfg12','wertewrt','tyafgadfgsegfdxv','jo'], afgadfg
-	Se esperaba: 3
-	Se recibio:  0
+Prueba Ocurrencias Substring 4 -> OK
 ----------------------------------------------
-Prueba Ocurrencias Substring 5 -> ERROR salida incorrecta
-	Parametros de entrada: ['solsol'], sol
-	Se esperaba: 1
-	Se recibio:  0
+Prueba Ocurrencias Substring 5 -> OK
 ----------------------------------------------
-Prueba Ocurrencias Substring 6 -> ERROR salida incorrecta
-	Parametros de entrada: ['ababac','aabaca','abaabaca'], abac
-	Se esperaba: 3
-	Se recibio:  0
+Prueba Ocurrencias Substring 6 -> OK
 ----------------------------------------------
-PRUEBAS FUNCION PruebaOcurrenciasSubstring                         HAY PRUEBAS INCORRECTAS
+PRUEBAS FUNCION PruebaOcurrenciasSubstring                         PRUEBAS CORRECTAS
 ----------------------------------------------
 ----------------------------------------------
 Prueba ordenar vector de strings 1 -> OK
 ----------------------------------------------
-Prueba ordenar vector de strings 2 -> ERROR salida incorrecta
-	Parametros de entrada: ['paso','pasa','pasado','pasaron']
-	Se esperaba: ['pasa','pasado','pasaron','paso']
-	Se recibio:  []
+Prueba ordenar vector de strings 2 -> OK
 ----------------------------------------------
-Prueba ordenar vector de strings 3 -> ERROR salida incorrecta
-	Parametros de entrada: ['hola']
-	Se esperaba: ['hola']
-	Se recibio:  []
+Prueba ordenar vector de strings 3 -> OK
 ----------------------------------------------
-Prueba ordenar vector de strings 4 -> ERROR salida incorrecta
-	Parametros de entrada: ['string','strings','substring','strong','strength']
-	Se esperaba: ['strength', 'string', 'strings', 'strong','substring']
-	Se recibio:  []
+Prueba ordenar vector de strings 4 -> OK
 ----------------------------------------------
-Prueba ordenar vector de strings 5 -> ERROR salida incorrecta
-	Parametros de entrada: ['1234','15324567','1563248','5132135']
-	Se esperaba: ['1234', '15324567', '1563248', '5132135']
-	Se recibio:  []
+Prueba ordenar vector de strings 5 -> OK
 ----------------------------------------------
-Prueba ordenar vector de strings 6 -> ERROR salida incorrecta
-	Parametros de entrada: ['153243','1532468','153246','15324679']
-	Se esperaba: ['153243', '153246', '15324679', '1532468']
-	Se recibio:  []
+Prueba ordenar vector de strings 6 -> OK
 ----------------------------------------------
-Prueba ordenar vector de strings 7 -> ERROR salida incorrecta
-	Parametros de entrada: ['algoritmos','algoritmia','algoritmo','algo']
-	Se esperaba: ['algo', 'algoritmia', 'algoritmo', 'algoritmos']
-	Se recibio:  []
+Prueba ordenar vector de strings 7 -> OK
 ----------------------------------------------
-Prueba ordenar vector de strings 8 -> ERROR salida incorrecta
-	Parametros de entrada: ['123456','123546','123645','123598','123754','12365498','1232','12','123','12911']
-	Se esperaba: ['12','123', '1232', '123456', '123546','123598', '123645', '12365498', '123754', '12911']
-	Se recibio:  []
+Prueba ordenar vector de strings 8 -> OK
 ----------------------------------------------
-PRUEBAS FUNCION PruebaOrdenarVecStr                                HAY PRUEBAS INCORRECTAS
+PRUEBAS FUNCION PruebaOrdenarVecStr                                PRUEBAS CORRECTAS
 ----------------------------------------------
 ----------------------------------------------
 Prueba split de strings 1 -> ERROR salida incorrecta
@@ -451,5 +391,5 @@ PRUEBAS FUNCION PruebaOrdenarVecIntMergeSort                       HAY PRUEBAS I
 ----------------------------------------------
 ----------------------------------------------
 PRUEBAS FUNCIONES 
-PRUEBAS FUNCIONES                              RESULTADO VARIOS => CORRECTAS:  8 INCORRECTAS:  6
+PRUEBAS FUNCIONES                              RESULTADO VARIOS => CORRECTAS: 11 INCORRECTAS:  3
 PRUEBAS FUNCIONES 
