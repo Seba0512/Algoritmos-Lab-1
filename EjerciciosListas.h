@@ -156,7 +156,7 @@ POS: modifica la lista l eliminando la primera ocurrencia de la secuencia (si ex
 
 Ejemplos:
 
-Lista: (1,2,3,4,5,6,7,8,9)
+Lista: (1,2,3,4,5,6,7,8,9)c
 Secuencia: (4,5,6)
 Resultado: (1,2,3,7,8,9)
 

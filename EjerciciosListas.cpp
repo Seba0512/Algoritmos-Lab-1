@@ -117,15 +117,71 @@ NodoLista* insComFin(NodoLista* l, int x) //OPCIONAL
 	return NULL;
 }
 
-NodoLista* exor(NodoLista* l1, NodoLista* l2)
-{
-	// IMPLEMENTAR SOLUCION
-	return NULL;
+NodoLista* exor(NodoLista* l1, NodoLista* l2) { 
+	if (l1 == NULL && l2 == NULL) {
+		return NULL;
+	}
+	if (l1 != NULL && (l2 == NULL || l1->dato < l2->dato)) {
+		int val = l1->dato;
+		while (l1 != NULL && l1->dato == val) {
+			l1 = l1->sig;
+		}
+		NodoLista* nue = new NodoLista;
+		nue->dato = val;
+		nue->sig = exor(l1, l2);
+		return nue;
+	}
+	if (l2 != NULL && (l1 == NULL || l2->dato < l1->dato)) {
+		int val = l2->dato;
+		while (l2 != NULL && l2->dato == val) {
+			l2 = l2->sig;
+		}
+		NodoLista* nue = new NodoLista;
+		nue->dato = val;
+		nue->sig = exor(l1, l2);
+		return nue;
+	}
+	if (l1 != NULL && l2 != NULL && l1->dato == l2->dato) {
+		int val = l2->dato;
+		while (l1 != NULL && l1->dato == val) {
+			l1 = l1->sig;
+		}
+		while (l2 != NULL && l2->dato == val) {
+			l2 = l2->sig;
+		}
+		return exor(l1, l2);
+	}
 }
 
-void eliminarDuplicadosListaOrdenadaDos(NodoLista*& l) 
-{
-	// IMPLEMENTAR SOLUCION
+void eliminarDuplicadosListaOrdenadaDos(NodoLista*& l) {
+	NodoLista* act = l;
+	NodoLista* prev = NULL;
+	while (act != NULL) {
+		int val = act->dato;
+		bool flag = false;
+		NodoLista* cont = act->sig;
+		while (cont != NULL && cont->dato == val) {
+			NodoLista* aBorrar = cont;
+			cont = cont->sig;
+			delete aBorrar;
+			flag = true;
+		}
+		if (flag) {
+			NodoLista* aBorrar = act;
+			act = cont;
+			if (prev == NULL) {
+				l = act;
+			}
+			else {
+				prev->sig = act;
+			}
+			delete aBorrar;
+		}
+		else {
+			prev = act;
+			act = act->sig;
+		}
+	}
 }
 
 bool palindromo(NodoLista* l) //OPCIONAL
@@ -134,9 +190,37 @@ bool palindromo(NodoLista* l) //OPCIONAL
 	return false;
 }
 
-void eliminarSecuencia(NodoLista* &l, NodoLista* secuencia) 
-{
-	// IMPLEMENTAR SOLUCION
+void eliminarSecuencia(NodoLista*& l, NodoLista* secuencia) {
+	if (l == NULL || secuencia == NULL) {
+		return;
+	}
+	NodoLista* ant = NULL;
+	NodoLista* act = l;
+	while (act != NULL) {
+		NodoLista* p1 = act;
+		NodoLista* p2 = secuencia;
+		while (p1 != NULL && p2 != NULL && p1->dato == p2->dato) {
+			p1 = p1->sig;
+			p2 = p2->sig;
+		}
+		if (p2 == NULL) {
+			NodoLista* aPart = act;
+			while (aPart != p1) {
+				NodoLista* aBorrar = aPart;
+				aPart = aPart->sig;
+				delete aBorrar;
+			}
+			if (ant == NULL) {
+				l = p1;
+			}
+			else {
+				ant->sig = p1;
+			}
+			return;
+		}
+		ant = act;
+		act = act->sig;
+	}
 }
 
 void moverNodo(NodoLista* &lista, unsigned int inicial, unsigned int final) //OPCIONAL
