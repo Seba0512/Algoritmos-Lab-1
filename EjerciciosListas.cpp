@@ -9,8 +9,8 @@ NodoLista* invertirParcial(NodoLista* l) {
 
 	while (p->sig != NULL) { 
 		NodoLista* n = new NodoLista(p->dato);
-		n->sig = ret; //uno n con lo que tengo de ret
-		ret = n; //hago que ret apunte a lo mismo que n
+		n->sig = ret; 
+		ret = n; 
 		p = p->sig;
 	}
 	return ret;              
@@ -22,9 +22,9 @@ void eliminarNesimoDesdeElFinal(NodoLista*& lista, int& n) {
 	}
 	eliminarNesimoDesdeElFinal(lista->sig,n);
 	if (n == 1) {
-		NodoLista* borrar = lista; //para guardarme 
+		NodoLista* aBorrar = lista; 
 		lista = lista->sig; 
-		delete borrar;
+		delete aBorrar;
 	}
 	n--;
 }
@@ -52,23 +52,23 @@ NodoLista* listaOrdenadaInsertionSort(NodoLista* l) {
 	return ret;
 }
 
-	void listaOrdenadaSelectionSort(NodoLista * &l) {
-		NodoLista* act = l;
-		while (act != NULL) {
-			NodoLista* mNod = act;
-			NodoLista* sigu = act->sig;
-			while (sigu != NULL) {
-				if (sigu->dato < mNod->dato) {
-					mNod = sigu;
-				}
-				sigu = sigu->sig;
+void listaOrdenadaSelectionSort(NodoLista * &l) {
+	NodoLista* act = l;
+	while (act != NULL) {
+		NodoLista* mNod = act;
+		NodoLista* sigu = act->sig;
+		while (sigu != NULL) {
+			if (sigu->dato < mNod->dato){
+				mNod = sigu;
 			}
-			int aux = act->dato;
-			act->dato = mNod->dato;
-			mNod->dato = aux;
-			act = act->sig;
+			sigu = sigu->sig;
 		}
+		int aux = act->dato;
+		act->dato = mNod->dato;
+		mNod->dato = aux;
+		act = act->sig;
 	}
+}
 
 
 NodoLista* intercalarIter(NodoLista* l1, NodoLista* l2) {

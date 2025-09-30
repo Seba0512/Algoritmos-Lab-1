@@ -29,7 +29,7 @@ bool existeCaminoConSuma(NodoAB* raiz, int sum) {
 		return (sum == 0);
 	}
 	int resto = sum - raiz->dato; //hago esto para comparar si llega a 0
-	if (raiz->izq == NULL && raiz->der == NULL) {//ver si es hoja
+	if (raiz->izq == NULL && raiz->der == NULL) { //ver si es hoja
 		return (resto == 0);
 	}
 	bool hayIzq = false;
@@ -59,6 +59,8 @@ bool esArbolBalanceado(NodoAB *raiz) {
 	return esArbolBalanceado(raiz->izq) && esArbolBalanceado(raiz->der);
 }
 
+//PRE: Recibe dos listas
+//POS: Concatena la 1ra lista con la segunda
 NodoLista* concatenar(NodoLista* a, NodoLista* b) {
 	if (a == NULL) {
 		return b;
@@ -71,6 +73,8 @@ NodoLista* concatenar(NodoLista* a, NodoLista* b) {
 	return a;                           
 }
 
+//PRE: Recibe la raíz de un árbol binario, el nivelActual (>=0) y el nivelBuscado (>=1).
+//POS: Retorna una nueva lista con los datos de los nodos en nivelBuscado, si no hay, devuelve NULL.
 NodoLista* recorrerAux(NodoAB* raiz, int nivelActual, int nivelBuscado) {
 	if (raiz == NULL) {
 		return NULL;
@@ -182,7 +186,7 @@ int sucesor(NodoAB* a, int n) {
 	return ret;
 }
 
-//PRE:Recibe un árbol binario y un entero mayor o igual a 1(nivel a contar)
+//PRE:Recibe un árbol binario y un entero mayor o igual a 1 (nivel a contar)
 //POS: Retorna la cantidad de nodos que existen en el nivel dado, en caso de ser un árbol vacío, devuelve 0
 int contarNivel(NodoAB* raiz, int nivel) {
 	if (raiz == NULL) {
@@ -212,27 +216,6 @@ int nivelMasNodos(NodoAB* raiz, int nivelHasta) {
 	}
 	return ret;
 }
-
-
-/*
- *	EJERCICIO OBLIGATORIO
-PRE: recibe un arbol binario
-POS: Retorna el nivel con mas nodos, desde el nivel 1 hasta nivelHasta.
-	 En caso de que el árbol sea vacio se debera retornar cero.
-	 Ante un empate debera retornar el número de nivel mas pequeño.
-	 NOTA: Esta operación se puede realizar en O(n).
-
-Ejemplo
-Entrada: {1,2,3,#,#,4,#,#,5}, 4
-   1
-  / \
- 2   3
-	/
-   4
-	\
-	 5
-Retorno: 2
-*/
 
 void borrarPares(NodoAB* & a){ //OPCIONAL
 	// IMPLEMENTAR SOLUCION

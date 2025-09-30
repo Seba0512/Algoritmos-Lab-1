@@ -44,29 +44,28 @@ void simplificar(int n, int d) {
 
 int ocurrencias123Repetidos(int* vector, int largo) {
     int cant = 0;
-    int estado = 0; // 0=esperando 1, 1=esperando 2, 2=esperando 3
-
+    int estado = 0; // 0 = esperando 1, 1 = esperando 2, 2 = esperando 3
     for (int i = 0; i < largo; i++) {
         if (estado == 0) {
             if (vector[i] == 1) {
-                estado = 1; // entramos a bloque de 1
+                estado = 1; 
             }
         }
         else if (estado == 1) {
             if (vector[i] == 2) {
-                estado = 2; // entramos a bloque de 2
+                estado = 2; 
             }
             else if (vector[i] != 1) {
-                estado = 0; // reiniciar si aparece algo fuera de 1 o 2
+                estado = 0;
             }
         }
         else if (estado == 2) {
             if (vector[i] == 3) {
-                cant++;     // encontramos [1,2,3]
-                estado = 0; // reiniciamos para buscar otra subsecuencia
+                cant++;     
+                estado = 0; 
             }
             else if (vector[i] != 2) {
-                estado = 0; // reiniciar si aparece algo fuera de 2 o 3
+                estado = 0; 
             }
         }
     }
@@ -76,9 +75,8 @@ int ocurrencias123Repetidos(int* vector, int largo) {
 int maximoNumero(unsigned int n) {
     int num;
     int maximo;
-    cin >> num;   // leo el primer número
+    cin >> num; 
     maximo = num;    
-
     for (int i = 0; i < n; i++) {
         cin >> num;
         if (num > maximo) {
@@ -96,27 +94,25 @@ void ordenarVecInt(int *vec, int largoVec) {
                 minPos = j;
             }
         }
-        int aux = vec[i]; //valor de i guardado asi no se pierde
+        int aux = vec[i]; //valor de i guardado asi no lo pierdo
         vec[i] = vec[minPos];
         vec[minPos] = aux;
     }
 }
 
-
 int* intercalarVector(int* v1, int* v2, int l1, int l2) {
-    // Caso especial: si ambos vectores están vacíos
     if (l1 + l2 == 0) {
         return NULL;
     }
-    int* resultado = new int[l1 + l2];  // vector nuevo para el resultado
-    int i = 0, j = 0;                   // índices para recorrer v1 y v2
-    for (int k = 0; k < l1 + l2; k++) { // recorro el nuevo vector
+    int* resultado = new int[l1 + l2];  
+    int i = 0, j = 0;
+    for (int k = 0; k < l1 + l2; k++) { 
         if (i < l1 && (j >= l2 || v1[i] <= v2[j])) {
-            resultado[k] = v1[i]; // pongo el de v1 si corresponde
+            resultado[k] = v1[i]; 
             i++;
         }
         else {
-            resultado[k] = v2[j]; // pongo el de v2 en otro caso
+            resultado[k] = v2[j]; 
             j++;
         }
     }
@@ -156,9 +152,8 @@ int obtenerlargo(char* str) {
 }
 
 char* invertirCase(char* str) {
-    int largo = obtenerlargo(str);//tomo el largo del str
+    int largo = obtenerlargo(str); //tomo el largo del str
     char* ret = new char[largo + 1];
-
     for (int i = 0; i < largo; i++) {
         if (str[i] >= 'A' && str[i] <= 'Z') {
             ret[i] = str[i] + 32;
@@ -170,7 +165,7 @@ char* invertirCase(char* str) {
             ret[i] = str[i];
         }
     }
-    ret[largo] = '\0'; //agrega el \0 al final
+    ret[largo] = '\0'; //agrego el \0 al final
     return ret;
 }
 
@@ -180,11 +175,11 @@ int islas(char** mapa, int col, int fil){
 }
 
 
-// PRE:
-//POS: 
+//PRE: Recibe dos strings: texto y pal
+//POS: Retorna true si pal aparece como subcadena de texto
 bool contiene(const char* texto, const char* pal) {
     if (pal[0] == '\0') {
-        return false; // si patron es vacío, no cuenta
+        return false; 
     }
     for (int i = 0; texto[i] != '\0'; i++) {
         int j = 0;
@@ -192,19 +187,18 @@ bool contiene(const char* texto, const char* pal) {
             j++;
         }
         if (pal[j] == '\0') {
-            return true; // lo encontramos
+            return true; 
         }
     }
     return false;
 }
 
-// Cuenta en cuántos strings aparece el substring
+
 unsigned int ocurrenciasSubstring(char** vecStr, int largoVecStr, char* substr) {
     unsigned int cuenta = 0;
-
     for (int i = 0; i < largoVecStr; i++) {
         if (contiene(vecStr[i], substr)) {
-            cuenta++; // solo una vez por string
+            cuenta++;
         }
     }
     return cuenta;
@@ -238,7 +232,7 @@ char** ordenarVecStrings(char** vecStr, int largoVecStr) {
     if (largoVecStr <= 0) {
         return nullptr;
     }
-    // copia todo a un nuevo vector(usa mi aux copiarStr)
+    // copia todo a un nuevo vector(uso mi aux copiarStr)
     char** nuevoVec = new char* [largoVecStr];
     for (int i = 0; i < largoVecStr; i++) {
         nuevoVec[i] = copiarStr(vecStr[i]);
@@ -246,7 +240,6 @@ char** ordenarVecStrings(char** vecStr, int largoVecStr) {
     for (int i = 0; i < largoVecStr - 1; i++) {
         for (int j = 0; j < largoVecStr - 1 - i; j++) {
             if (compararStr(nuevoVec[j], nuevoVec[j + 1])) {
-
                 char* temp = nuevoVec[j];
                 nuevoVec[j] = nuevoVec[j + 1];
                 nuevoVec[j + 1] = temp;
