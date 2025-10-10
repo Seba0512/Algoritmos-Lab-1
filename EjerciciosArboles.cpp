@@ -230,22 +230,79 @@ int alturaAG(NodoAG* raiz) { //OPCIONAL
 	}
 }
 
-int sumaPorNiveles(NodoAG* raiz){
-	// IMPLEMENTAR SOLUCION
-	return 0;
+//PRE:
+//POS:
+int sumaPorNivelesRec(NodoAG* raiz, int nivel) {
+	if (raiz == NULL) {
+		return 0;
+	} else {
+		if (nivel % 2 == 0) {
+			return raiz->dato + sumaPorNivelesRec(raiz->sh, nivel) + sumaPorNivelesRec(raiz->ph, 1 + nivel);
+		} else {
+			int dato = raiz->dato;
+			dato = -dato;
+			return dato + sumaPorNivelesRec(raiz->sh, nivel) + sumaPorNivelesRec(raiz->ph, 1 + nivel);
+		}
+	}
 }
 
-bool esPrefijo(NodoAG *a, NodoLista *l)
-{
-	// IMPLEMENTAR SOLUCION
-	return false;
+int sumaPorNiveles(NodoAG* raiz){
+	return sumaPorNivelesRec(raiz, 1);
+}
+
+bool esPrefijo(NodoAG* a, NodoLista* l) {
+	if (l == NULL) {
+		return true;
+	}
+	if (a == NULL) {
+		return false;
+	}
+	if (a->dato == l->dato) {
+		return esPrefijo(a->ph, l->sig) || esPrefijo(a->sh, l);
+	}
+	return esPrefijo(a->sh, l);
 }
 
 NodoLista* caminoAG(NodoAG *arbolGeneral, int dato) {
-	return NULL;
+	if (arbolGeneral == NULL) {
+		return NULL;
+	}
+	if (arbolGeneral->dato == dato) {
+		return new NodoLista(arbolGeneral->dato);
+	} else {
+		NodoLista* caminoPh = caminoAG(arbolGeneral->ph, dato);
+		if (caminoPh != NULL) {
+			NodoLista* nuevo = new NodoLista(arbolGeneral->dato);
+			nuevo->sig = caminoPh;
+			return nuevo;
+		} else {
+			return caminoAG(arbolGeneral->sh, dato);
+		}	
+	}
 }
 
+
 int nivelConMasNodosAG(NodoAG * arbolGeneral) {
-	// IMPLEMENTAR SOLUCION
-	return 0;
+	if (arbolGeneral == NULL) {
+		return 0;
+	}
+
 }
+
+/*
+ *	EJERCICIO OBLIGATORIO
+PRE: Recibe un arbol general implementado como un arbol binario (primer hijo – siguiente hermano).
+POS: Retorna el nivel con mas nodos del AG. En caso de haber mas de un nivel con la misma cantidad
+	 de nodos retorna el menor. La  raíz se encuentra en el nivel 1.
+	 NOTA: Esta operación se puede realizar en O(n).
+
+		Ejemplo:    ENTRADA
+				ARBOL
+				  1					Nivel 1
+				  |
+				  2 -> 3			Nivel 2
+				  |    |
+				  4	   5			Nivel 3
+
+				SALIDA  Nivel 2;
+*/
