@@ -1,5 +1,7 @@
 #include "EjerciciosArboles.h"
 
+//PRE: Recibe dos números
+//POS: Retorna el máximo entre ambos, si son iguales, retorna el segundo
 int max(int a,int b){
 	if (a > b) {
 		return a;
@@ -230,8 +232,8 @@ int alturaAG(NodoAG* raiz) { //OPCIONAL
 	}
 }
 
-//PRE:
-//POS:
+//PRE: Recibe un arbol general y un nivel
+//POS: Retorna la suma los valores de los niveles pares y resta los valores de los impares
 int sumaPorNivelesRec(NodoAG* raiz, int nivel) {
 	if (raiz == NULL) {
 		return 0;
@@ -281,28 +283,35 @@ NodoLista* caminoAG(NodoAG *arbolGeneral, int dato) {
 	}
 }
 
+//PRE:Recibe un nodo de arbol general, un entero que representa el nivel a contar, y un entero que representa el nivel actual en la recursión
+//POS: Devuelve la cantidad de nodos que hay en nivel "nivel"
+int cantNodos(NodoAG* a, int nivel, int nivAct) {
+	if (a == NULL || nivel < nivAct) {
+		return 0;
+	}
+	if (nivel == nivAct) {
+		return 1 + cantNodos(a->sh, nivel, nivAct);
+	}
+	return cantNodos(a->ph, nivel, nivAct + 1) + cantNodos(a->sh, nivel, nivAct);
+}
 
-int nivelConMasNodosAG(NodoAG * arbolGeneral) {
+int nivelConMasNodosAG(NodoAG* arbolGeneral) {
 	if (arbolGeneral == NULL) {
 		return 0;
 	}
-
+	int maxNodos = 0;
+	int nivelMax = 1;
+	int nivel = 1;
+	while (true) {
+		int nodosNivel = cantNodos(arbolGeneral, nivel, 1);
+		if (nodosNivel > maxNodos) {
+			maxNodos = nodosNivel;
+			nivelMax = nivel;
+		}
+		if (nodosNivel == 0) {
+			break;
+		}
+		nivel++;
+	}
+	return nivelMax;
 }
-
-/*
- *	EJERCICIO OBLIGATORIO
-PRE: Recibe un arbol general implementado como un arbol binario (primer hijo – siguiente hermano).
-POS: Retorna el nivel con mas nodos del AG. En caso de haber mas de un nivel con la misma cantidad
-	 de nodos retorna el menor. La  raíz se encuentra en el nivel 1.
-	 NOTA: Esta operación se puede realizar en O(n).
-
-		Ejemplo:    ENTRADA
-				ARBOL
-				  1					Nivel 1
-				  |
-				  2 -> 3			Nivel 2
-				  |    |
-				  4	   5			Nivel 3
-
-				SALIDA  Nivel 2;
-*/
